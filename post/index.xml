@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My Hugo Blog Site</title>
+    <link>http://adavis10006.github.io/post/index.xml</link>
+    <description>Recent content in Posts on My Hugo Blog Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 19 Feb 2017 12:40:57 +0800</lastBuildDate>
+    <atom:link href="http://adavis10006.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>good to great</title>
+      <link>http://adavis10006.github.io/post/good-to-great/</link>
+      <pubDate>Sun, 19 Feb 2017 12:40:57 +0800</pubDate>
+      
+      <guid>http://adavis10006.github.io/post/good-to-great/</guid>
+      <description>&lt;p&gt;I read &lt;strong&gt;Good to Great in January 2016&lt;/strong&gt;. An awesome read sharing detailed analysis on how good companies became great.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
